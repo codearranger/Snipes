@@ -10,7 +10,7 @@ For more information, see the [vogons.org forum thread](https://www.vogons.org/v
 
 SDL builds require the SDL2 and SDL2_ttf libraries.
 
-On startup, the SDL build will attempt to load a custom font, which can be obtained separately from [here](http://kingbird.myphotos.cc/ee22d44076adb8a34d8e20df4be3730a/SnipesConsole.ttf). On macOS, if the custom font is not available, the game will automatically fall back to system fonts (Courier, Menlo, etc.).
+On startup, the SDL build will attempt to load a custom font, which can be obtained separately from [here](http://kingbird.myphotos.cc/ee22d44076adb8a34d8e20df4be3730a/SnipesConsole.ttf). The custom font is required for authentic visuals. If unavailable, the game will fall back to system fonts with a warning that visuals will differ from the original.
 
 #### With Visual Studio
 

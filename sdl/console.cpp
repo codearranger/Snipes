@@ -444,22 +444,25 @@ TTF_Font* LoadFontWithFallbacks(int size)
 	TTF_Font* font = TTF_OpenFont(FONT_FILENAME, size);
 	if (!font)
 	{
-		fprintf(stderr, "Warning: Could not load %s, trying fallback fonts...\n", FONT_FILENAME);
+		fprintf(stderr, "WARNING: Could not load %s\n", FONT_FILENAME);
+		fprintf(stderr, "The custom font is required for authentic visuals.\n");
+		fprintf(stderr, "Download from: http://kingbird.myphotos.cc/ee22d44076adb8a34d8e20df4be3730a/SnipesConsole.ttf\n");
+		fprintf(stderr, "Attempting to use system fallback fonts (visuals may differ)...\n");
 		// Try common system monospace fonts as fallbacks
 		const char* fallback_fonts[] = {
 			"/System/Library/Fonts/Courier.ttc",
-			"/System/Library/Fonts/SFNSMono.ttf", 
+			"/System/Library/Fonts/SFNSMono.ttf",
 			"/System/Library/Fonts/Menlo.ttc",
 			"/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf", // Linux
 			NULL
 		};
-		
+
 		for (int i = 0; fallback_fonts[i] != NULL; i++)
 		{
 			font = TTF_OpenFont(fallback_fonts[i], size);
 			if (font)
 			{
-				fprintf(stderr, "Using fallback font: %s\n", fallback_fonts[i]);
+				fprintf(stderr, "Using fallback font: %s (NOTICE: Game visuals will differ from original)\n", fallback_fonts[i]);
 				break;
 			}
 		}
